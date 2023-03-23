@@ -9,4 +9,4 @@ class Questions(models.Model):
     answer_4 = models.CharField(max_length=255)
     correct_answer = models.CharField(max_length=255)
     is_verified = models.BooleanField(default=False)
-    experience = models.ForeignKey('statistics.EXPERIENCE', on_delete=models.DO_NOTHING())
+    experience = models.ForeignKey('statistics.Experience', on_delete=models.DO_NOTHING())
