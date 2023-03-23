@@ -8,4 +8,4 @@ class User(models.Model):
     last_name = models.CharField(max_length=30)
     is_creator = models.BooleanField(default=False)
     score = models.IntegerField(default=0)
-    experience = models.ForeignKey('statistics.Experience', on_delete=models.DO_NOTHING)
+    experience = models.ForeignKey('stats.Experience', on_delete=models.CASCADE)
