@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class QUESTIONS(models.Model):
+class Questions(models.Model):
     question = models.CharField(max_length=255)
     answer_1 = models.CharField(max_length=255)
     answer_2 = models.CharField(max_length=255)
