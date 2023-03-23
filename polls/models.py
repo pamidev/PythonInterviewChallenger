@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class QUESTIONS(models.Model):
     question = models.CharField(max_length=255)
     answer_1 = models.CharField(max_length=255)
@@ -8,4 +9,4 @@ class QUESTIONS(models.Model):
     answer_4 = models.CharField(max_length=255)
     correct_answer = models.CharField(max_length=255)
     is_verified = models.BooleanField(default=False)
-    experience = models.ForeignKey('STATISTICS.EXPERIENCE', on_delete=models.DO_NOTHING)
+    experience = models.ForeignKey('statistics.EXPERIENCE', on_delete=models.DO_NOTHING())
