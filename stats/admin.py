@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import AnswerHistory, Experience
 
-# Register your models here.
+
+admin.site.register(AnswerHistory)
+admin.site.register(Experience)
