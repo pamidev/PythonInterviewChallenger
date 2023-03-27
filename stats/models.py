@@ -6,4 +6,4 @@ class Experience(models.Model):
 
 class Answer_History(models.Model):
     user = models.ForeignKey('accounts.User', on_delete=models.CASCADE)
-    question = models.ForeignKey('polls.Questions', on_delete=models.CASCADE)
+    question = models.ForeignKey('polls.Question', on_delete=models.CASCADE)
