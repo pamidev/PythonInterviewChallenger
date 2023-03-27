@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Experience(models.Model):
-    lvl = models.IntegerField(unique=True)
+    lvl = models.CharField(max_length=10, unique=True)
 
 
 class AnswerHistory(models.Model):
