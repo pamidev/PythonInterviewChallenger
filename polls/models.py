@@ -10,3 +10,6 @@ class Question(models.Model):
     correct_answer = models.CharField(max_length=255)
     is_verified = models.BooleanField(default=False)
     experience = models.ForeignKey('stats.Experience', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.question
