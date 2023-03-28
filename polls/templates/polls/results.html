@@ -1,9 +1,19 @@
-<h1>{{ question.question_text }}</h1>
+{% extends 'base.html' %}
+{% block content %}
 
-<ul>
-{% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
-{% endfor %}
-</ul>
+<div class="container ">
+    <div class="card-columns">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-text">Score: {{score}}</p>
+                <p class="card-text">Percentage: {{percent}}%</p>
+                <p class="card-text">Time Taken: {{time}} seconds</p>
+                <p class="card-text">Correct answers: {{correct}}</p>
+                <p class="card-text">Incorrect answers: {{wrong}}</p>
+                <p class="card-text">Total questions: {{total}}</p>
+            </div>
+        </div>
+    </div>
+</div>
 
-<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+{% endblock %}
