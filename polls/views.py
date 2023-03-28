@@ -24,10 +24,10 @@ def quiz(request):
         context = {
             'score': score,
             'time': request.POST.get('timer'),
+            'percent': percent,
+            'total': total,
             'correct': correct,
             'wrong': wrong,
-            'percent': percent,
-            'total': total
         }
         return render(request, 'polls/results.html', context)
     else:
@@ -39,7 +39,7 @@ def quiz(request):
 
 
 def add_question(request):
-    if request.user.is_staff:
+    if request.user.is_authenticated:
         form = AddQuestionForm()
         if request.method == 'POST':
             form = AddQuestionForm(request.POST)
