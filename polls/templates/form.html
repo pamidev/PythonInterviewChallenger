@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+ <form method="post">
+   {% csrf_token %}
+   {{ form.non_field_errors }}
+   <div class="form-group">
+     {{ form.title.errors }}
+     <label for="{{ form.title.id_for_label }}">Title:</label>
+     {{ form.title }}
+   </div>
+   <div class="row">
+     <div class="col">
+       <div class="form-group">
+         {{ form.genre.errors }}
+         <label for="{{ form.genre.id_for_label }}">Genre:</label>
+         {{ form.genre }}
+       </div>
+     </div>
+     <div class="col">
+       <div class="form-group">
+         {{ form.rating.errors }}
+         <label for="{{ form.rating.id_for_label }}">Rating:</label>
+         {{ form.rating }}
+       </div>
+     </div>
+     <div class="col">
+       <div class="form-group">
+         {{ form.released.errors }}
+         <label for="{{ form.released.id_for_label }}">Released:</label>
+         {{ form.released }}
+       </div>
+     </div>
+   </div>
+   <div class="form-group">
+     {{ form.description.errors }}
+     <label for="{{ form.description.id_for_label }}">Description:</label>
+     {{ form.description }}
+   </div>
+   <input type="submit" value="Submit" class="btn btn-primary">
+ </form>
+{% endblock %}
