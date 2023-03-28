@@ -33,9 +33,7 @@
                 <a class="nav-item nav-link active" href="{% url 'index' %}">
                     Home
                 </a>
-                <a class="nav-item nav-link active" href="{% url 'movie_create' %}">
-                    Create movie
-                </a>
+
             </div>
         </div>
         <div class="navbar-nav">
@@ -52,27 +50,17 @@
                     <img src="{% static 'viewer/images/logo_125x50.png' %}" alt="the Movies logo">
                 </a>
             </div>
-            <div class="nav-bar-l">
-                <ul>
-                    {% if request.path != '/' %}
-                    <li><a href="javascript:" onclick="history.go(-1);">&#8592; Back</a></li>
-                    {% endif %}
-                    {% if request.user.is_authenticated %}
-                    <li><a href="{% url 'movie_create' %}">+ Add Movie</a></li>
-                    {% endif %}
-                </ul>
-            </div>
 
-            <div class="nav-bar-r">
-                <ul>
-                {% if request.user.is_authenticated %}
-                    <li><a href="{% url 'logout' %}?next={{request.path}}">Logout</a></li>
-                {% else %}
-                    <li><a href="{% url 'login' %}?next={{request.path}}">Sign in</a></li>
-                    <li><a href="{% url 'register' %}">Register</a></li>
-                {% endif %}
-                </ul>
-            </div>
+{#            <div class="nav-bar-r">#}
+{#                <ul>#}
+{#                {% if request.user.is_authenticated %}#}
+{#                    <li><a href="{% url 'logout' %}?next={{request.path}}">Logout</a></li>#}
+{#                {% else %}#}
+{#                    <li><a href="{% url 'login' %}?next={{request.path}}">Sign in</a></li>#}
+{#                    <li><a href="{% url 'register' %}">Register</a></li>#}
+{#                {% endif %}#}
+{#                </ul>#}
+{#            </div>#}
         </div>
 
         </section>
