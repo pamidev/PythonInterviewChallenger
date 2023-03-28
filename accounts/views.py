@@ -1,19 +1,15 @@
-from django.contrib.auth import authenticate, login
-from django.shortcuts import render, redirect
+from django.contrib.auth.views import LoginView
+from django.http import HttpResponse
+from django.urls import reverse_lazy
+from django.views.generic.edit import FormView
+from django.contrib.auth.forms import AuthenticationForm
 
 
-# Create your views here.
-def login_view(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('home')
-        else:
-            error_message = 'Invalid login credentials. Please try again.'
-    else:
-        error_message = ''
-    return render(request, 'login.html', {'error_message': error_message})
+class CustomLoginView(LoginView):
+    template_name = 'login.html'
+    form_class = AuthenticationForm
+    success_url = reverse_lazy('home')
 
+
+def profile(request):
+    return HttpResponse("Hello. This is Your profile.")
