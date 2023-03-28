@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'polls.wsgi.application'
+WSGI_APPLICATION = 'challenger.wsgi.application'
 
 
 # Database
