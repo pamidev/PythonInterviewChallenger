@@ -53,4 +53,4 @@ def add_question(request):
         context = {'form': form}
         return render(request, 'polls/add_question.html', context)
     else:
-        return redirect('home')
+        return redirect('index')
