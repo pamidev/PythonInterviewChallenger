@@ -1,7 +1,11 @@
 from django.shortcuts import redirect, render
 from .forms import AddQuestionForm
 from .models import Question
+from django.http import HttpResponse
 
+
+def index(request):
+    return HttpResponse("Hello adventurer. You're at the main page.")
 
 def quiz(request):
     if request.method == 'POST':
@@ -35,7 +39,7 @@ def quiz(request):
         context = {
             'questions': questions
         }
-        return render(request, 'polls/home.html', context)
+        return render(request, 'polls/quiz.html', context)
 
 
 def add_question(request):
