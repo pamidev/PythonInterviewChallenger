@@ -7,6 +7,7 @@ from django.http import HttpResponse
 def index(request):
     return HttpResponse("Hello adventurer. You're at the main page.")
 
+
 def quiz(request):
     if request.method == 'POST':
         questions = Question.objects.all()
@@ -27,7 +28,6 @@ def quiz(request):
         percent = score / (total * 10) * 100
         context = {
             'score': score,
-            'time': request.POST.get('timer'),
             'percent': percent,
             'total': total,
             'correct': correct,
@@ -53,4 +53,4 @@ def add_question(request):
         context = {'form': form}
         return render(request, 'polls/add_question.html', context)
     else:
-        return redirect('home')
+        return redirect('index')
