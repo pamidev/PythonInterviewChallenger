@@ -6,11 +6,3 @@ class Experience(models.Model):
 
     def __str__(self):
         return self.lvl
-
-
-class AnswerHistory(models.Model):
-    user = models.ForeignKey('accounts.User', on_delete=models.CASCADE)
-    question = models.ForeignKey('polls.Question', on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.user

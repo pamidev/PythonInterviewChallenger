@@ -1,6 +1,5 @@
 from django.contrib import admin
-from .models import AnswerHistory, Experience
+from .models import Experience
 
 
-admin.site.register(AnswerHistory)
 admin.site.register(Experience)
