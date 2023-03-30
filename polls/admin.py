@@ -1,9 +1,10 @@
 from django.contrib import admin
+from django.contrib.admin import ModelAdmin
 
 from .models import Question
 
 
-class QuestionAdmin(admin.ModelAdmin):
+class QuestionAdmin(ModelAdmin):
     fieldsets = [
         (None, {'fields': ['question']}),
         (None, {'fields': ['pub_date']}),
