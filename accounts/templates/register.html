@@ -8,3 +8,42 @@
 {#        <button type="submit">Register</button>#}
 {#    </form>#}
 {#{% endblock %}#}
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <title>Python Interviev Challanger</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <<link rel="stylesheet" href="{% static 'css/register.css.css' %}" />
+  </head>
+
+  <body>
+    <section class="container">
+      <div class="login-wrapper">
+        <h1>Python Interviev Challange</h1>
+        <h2>please register here</h2>
+        <form action="#" class="form">
+          <label for="username">username</label>
+          <input type="text" id="username" />
+          <label for="password">password</label>
+          <input type="password" id="password" />
+          <label for="password">password2</label>
+          <input type="password" id="password" />
+          <label for="password">email</label>
+          <input type="password" id="password" />
+          <label for="password">first name</label>
+          <input type="password" id="first_name" />
+          <label for="password">last name</label>
+          <input type="password" id="last_name" />
+          <input type="submit" value="login" />
+        </form>
+      </div>
+    </section>
+  </body>
+</html>
+
