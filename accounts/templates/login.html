@@ -1,16 +1,46 @@
-{% extends 'base.html' %}
+{#{% extends 'base.html' %}#}
+{#{% block content %}#}
+{#  <h3>Login</h3>#}
+{#  {% if error_message %}#}
+{#    <p class="error">{{ error_message }}</p>#}
+{#  {% endif %}#}
+{#  <form method="post">#}
+{#    {% csrf_token %}#}
+{#    <label for="username">Username:</label>#}
+{#    <input type="text" id="username" name="username"><br><br>#}
+{#    <label for="password">Password:</label>#}
+{#    <input type="password" id="password" name="password"><br><br>#}
+{#    <input type="submit" class="btn btn-primary" value="Login">#}
+{#  </form>#}
+{#{% endblock %}#}
 
-{% block content %}
-  <h1>Login</h1>
-  {% if error_message %}
-    <p class="error">{{ error_message }}</p>
-  {% endif %}
-  <form method="post">
-    {% csrf_token %}
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username"><br><br>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password"><br><br>
-    <input type="submit" value="Login">
-  </form>
-{% endblock %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <title>Python Interview Challenger</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+  </head>
+
+  <body>
+    <section class="container">
+      <div class="login-wrapper">
+        <h1>Python Interview Challenger</h1>
+        <h2>please login here</h2>
+        <form method="post" class="form">
+          {% csrf_token %}
+          <label for="username">username</label>
+          <input type="text" id="username" name="username" />
+          <label for="password">password</label>
+          <input type="password" id="password" name="password" />
+          <input type="submit" value="login" />
+        </form>
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,33 +1,49 @@
-{% extends 'base.html' %}
+{#{% extends 'base.html' %}#}
+{##}
+{#{% block content %}#}
+{#    <h2>Register</h2>#}
+{#    <form method="post">#}
+{#        {% csrf_token %}#}
+{#        {{ form.as_p }}#}
+{#        <button type="submit">Register</button>#}
+{#    </form>#}
+{#{% endblock %}#}
 
-{% block content %}
-  <h2>User Registration</h2>
-  <form method="POST" action="">
-    {% csrf_token %}
-    <div class="form-group">
-      <label for="id_login">Login:</label>
-      {{ form.username }}
-    </div>
-    <div class="form-group">
-      <label for="id_mail">Email:</label>
-      {{ form.email }}
-    </div>
-    <div class="form-group">
-      <label for="id_password">Password:</label>
-      {{ form.password1 }}
-    </div>
-    <div class="form-group">
-      <label for="id_password_confirm">Confirm password:</label>
-      {{ form.password2 }}
-    </div>
-    <div class="form-group">
-      <label for="id_first_name">First Name:</label>
-      {{ form.first_name }}
-    </div>
-    <div class="form-group">
-      <label for="id_last_name">Last Name:</label>
-      {{ form.last_name }}
-    </div>
-    <button type="submit" class="btn btn-primary">Register</button>
-  </form>
-{% endblock %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <title>Python Interviev Challanger</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <<link rel="stylesheet" href="{% static 'css/register.css.css' %}" />
+  </head>
+
+  <body>
+    <section class="container">
+      <div class="login-wrapper">
+        <h1>Python Interviev Challange</h1>
+        <h2>please register here</h2>
+        <form action="#" class="form">
+          <label for="username">username</label>
+          <input type="text" id="username" />
+          <label for="password">password</label>
+          <input type="password" id="password" />
+          <label for="password">password2</label>
+          <input type="password" id="password" />
+          <label for="password">email</label>
+          <input type="password" id="password" />
+          <label for="password">first name</label>
+          <input type="password" id="first_name" />
+          <label for="password">last name</label>
+          <input type="password" id="last_name" />
+          <input type="submit" value="login" />
+        </form>
+      </div>
+    </section>
+  </body>
+</html>
+

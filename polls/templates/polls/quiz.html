@@ -3,13 +3,10 @@
 {% load static %}
 
 <div class="container ">
-<h1>Python Interview Challenger</h1>
-
-<div id="displaytimer"><b>Timer: 0 seconds</b></div>
-
+<h3>Python Interview Challenger</h3>
  <form method='post' action=''>
     {% csrf_token %}
-    {% for q  in questions%}
+    {% for q  in questions %}
     <div class="form-group">
       <label for="question">{{q.question}}</label>
     </div>
@@ -41,25 +38,9 @@
         <br>
     </div>
     {% endfor %}
-    <input id='timer' type='hidden' name="timer" value="">
     <br>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
-    {% block script %}
-        <script>
-            console.log('hello world')
-            const timer=document.getElementById('displaytimer')
-            console.log(timer.textContent)
-            const inputtag = document.getElementById('timer')
-            t=0
-            setInterval(()=>{
-                t+=1
-                timer.innerHTML ="<b>Timer: " +t+" seconds</b>"
-                inputtag.value = t
-            },1000)
-        </script>
-    {% endblock script %}
-
 </div>
 
 {% endblock %}
