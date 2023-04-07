@@ -1,4 +1,5 @@
 :root {
+    z-index: 2;
     --blue : #12d2db;
     --white : #fcf2fa;
     --purple : #912a7eaa;

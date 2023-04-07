@@ -4,10 +4,9 @@ from .forms import CreateUserForm
 from django.contrib.auth import authenticate, login, logout
 
 
-
 def registerPage(request):
     if request.user.is_authenticated:
-        return redirect('index')
+        return redirect('home')
     else:
         form = CreateUserForm()
         if request.method == 'POST':
@@ -21,7 +20,7 @@ def registerPage(request):
 
 def loginPage(request):
     if request.user.is_authenticated:
-        return redirect('index')
+        return redirect('home')
     else:
         if request.method == 'POST':
             username = request.POST.get('username')
@@ -31,14 +30,14 @@ def loginPage(request):
 
             if user is not None:
                 login(request, user)
-                return redirect('index')
+                return redirect('home')
 
         context = {}
         return render (request, 'login.html', context)
 
 def logoutUser(request):
     logout(request)
-    return redirect('index')
+    return redirect('home')
 
 def profile(request):
     return HttpResponse("Hello. This is Your profile.")

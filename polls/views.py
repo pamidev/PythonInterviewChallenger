@@ -1,11 +1,7 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from .forms import AddQuestionForm
 from .models import Question
-from django.http import HttpResponse
-from django.contrib.auth.decorators import login_required
-
-def index(request):
-    return HttpResponse("Hello adventurer. You're at the main page.")
 
 
 login_required(login_url='index')

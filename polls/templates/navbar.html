@@ -44,7 +44,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
   </head>
 
   <body>
@@ -56,7 +56,7 @@
         </label>
         <label class="logo">Python Interviev Challanger</label>
         <ul>
-          <li><a href="#" class="active">home</a></li>
+          <li><a href="{% url 'home' %}">home</a></li>
           <li><a href="{% url 'login' %}">sign in</a></li>
           <li><a href="{% url 'register' %}">sign up</a></li>
         </ul>
