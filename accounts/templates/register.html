@@ -33,17 +33,15 @@
         <form method="post" action="" class="form">
             {% csrf_token %}
           <label for="username">username</label>
-          <input type="text" id="username" />
+            {{ form.username }}
           <label for="password">password</label>
-          <input type="password" id="password" />
+            {{ form.password1 }}
           <label for="password2">password2</label>
-          <input type="password" id="password2" />
-          <label for="password">email</label>
-          <input type="password" id="password" />
-          <label for="password">first name</label>
-          <input type="password" id="first_name" />
-          <label for="password">last name</label>
-          <input type="password" id="last_name" />
+            {{ form.password2 }}
+          <label for="">first name</label>
+            {{ form.first_name }}
+          <label for="">last name</label>
+            {{ form.last_name }}
           <input type="submit" value="submit" />
         </form>
           {{ form.errors }}

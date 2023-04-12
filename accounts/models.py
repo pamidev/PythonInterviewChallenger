@@ -3,7 +3,6 @@ from django.db import models
 
 class User(models.Model):
     username = models.CharField(max_length=128)
-    mail = models.EmailField(unique=True)
     password = models.CharField(max_length=128)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
@@ -12,7 +11,7 @@ class User(models.Model):
     experience = models.ForeignKey('stats.Experience', on_delete=models.CASCADE)
 
 class Admin(models.Model):
-    mail = models.EmailField(unique=True)
+    email = models.EmailField(unique=True)
     password = models.CharField(max_length=128)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
