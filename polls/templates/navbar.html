@@ -1,3 +1,5 @@
+{% load static %}
+
 {% comment %}
 {% load static %}
 
@@ -35,23 +37,16 @@
 {% endcomment %}
 
 <!DOCTYPE html>
-{% load static %}
 <html lang="en">
   <head>
-    <title>Python Interviev Challanger</title>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
   </head>
 
   <body>
     <header>
       <nav>
-        <input type="checkbox" id="check" />
-        <label for="check" class="checkbtn">
+{#        <input type="checkbox" id="check" />#}
+{#        <label for="check" class="checkbtn">#}
           <i class="bx bx-menu"></i>
         </label>
         <label class="logo">Python Interviev Challanger</label>
@@ -60,6 +55,7 @@
           <li><a href="{% url 'login' %}">sign in</a></li>
           <li><a href="{% url 'register' %}">sign up</a></li>
         </ul>
+        <div> 'login' </div>
       </nav>
     </header>
   </body>

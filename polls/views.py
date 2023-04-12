@@ -4,7 +4,7 @@ from .forms import AddQuestionForm
 from .models import Question
 
 
-login_required(login_url='index')
+login_required(login_url='home')
 def quiz(request):
     if request.method == 'POST':
         questions = Question.objects.all()
@@ -40,7 +40,7 @@ def quiz(request):
         return render(request, 'polls/quiz.html', context)
 
 
-login_required(login_url='index')
+login_required(login_url='home')
 def add_question(request):
     if request.user.is_authenticated:
         form = AddQuestionForm()
@@ -52,4 +52,4 @@ def add_question(request):
         context = {'form': form}
         return render(request, 'polls/add_question.html', context)
     else:
-        return redirect('index')
+        return redirect('home')

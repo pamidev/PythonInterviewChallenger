@@ -1,3 +1,7 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
 {#{% extends 'base.html' %}#}
 {#{% block content %}#}
 {#  <h3>Login</h3>#}
@@ -14,16 +18,11 @@
 {#  </form>#}
 {#{% endblock %}#}
 
+
 <!DOCTYPE html>
-{% load static %}
+{% block content %}
 <html lang="en">
   <head>
-    <title>Python Interview Challenger</title>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
     <link rel="stylesheet" href="{% static 'css/login.css' %}" />
   </head>
 
@@ -44,3 +43,4 @@
     </section>
   </body>
 </html>
+{% endblock %}
