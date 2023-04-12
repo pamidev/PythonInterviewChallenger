@@ -39,6 +39,12 @@
           <input type="password" id="password" name="password" />
           <input type="submit" value="login" />
         </form>
+          {% for message in messages %}
+            <p id="messages">{{message}}</p>
+          {% endfor %}
+          <p>
+              Don't have an account? <a href="{% url 'register' %}">Sign up</a>
+          </p>
       </div>
     </section>
   </body>

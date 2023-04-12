@@ -38,27 +38,26 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
-  </head>
+    <head>
+        <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    </head>
 
-  <body>
-    <header>
-      <nav>
-{#        <input type="checkbox" id="check" />#}
-{#        <label for="check" class="checkbtn">#}
-          <i class="bx bx-menu"></i>
-        </label>
-        <label class="logo">Python Interviev Challanger</label>
-        <ul>
-          <li><a href="{% url 'home' %}">home</a></li>
-          <li><a href="{% url 'login' %}">sign in</a></li>
-          <li><a href="{% url 'register' %}">sign up</a></li>
-        </ul>
-        <div> 'login' </div>
-      </nav>
-    </header>
-  </body>
+    <body>
+        <header>
+            <nav>
+                <input type="checkbox" id="check" />
+                <label for="check" class="checkbtn">
+                <i class="bx bx-menu"></i>
+                </label>
+                <label class="logo">Python Interviev Challanger</label>
+                <ul>
+                    <li>Hello, {{ request.user }}</li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'login' %}">Sign in</a></li>
+                    <li><a href="{% url 'register' %}">Sign up</a></li>
+                </ul>
+            </nav>
+        </header>
+    </body>
 </html>
-
-
