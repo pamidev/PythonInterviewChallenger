@@ -4,7 +4,6 @@ from .forms import AddQuestionForm
 from .models import Question
 
 
-login_required(login_url='home')
 def quiz(request):
     if request.method == 'POST':
         questions = Question.objects.all()
@@ -25,7 +24,6 @@ def quiz(request):
         percent = score / (total * 10) * 100
         context = {
             'score': score,
-            'time': request.POST.get('timer'),
             'percent': percent,
             'total': total,
             'correct': correct,
@@ -40,7 +38,7 @@ def quiz(request):
         return render(request, 'polls/quiz.html', context)
 
 
-login_required(login_url='home')
+@login_required(login_url='home')
 def add_question(request):
     if request.user.is_authenticated:
         form = AddQuestionForm()
