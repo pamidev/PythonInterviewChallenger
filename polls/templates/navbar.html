@@ -10,6 +10,7 @@
         {% if request.user.is_authenticated %}
             <li><a href="{% url 'logout' %}">Logout</a></li>
             <li><a href="{% url 'profile' %}">Profile</a></li>
+            <li><a href="{% url 'add_question' %}">Add question</a></li>
         {% else %}
             <li><a href="{% url 'login' %}">Sign in</a></li>
             <li><a href="{% url 'register' %}">Sign up</a></li>

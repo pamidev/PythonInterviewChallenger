@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block content %}
- 
 <div class="jumbotron container row">
     <div class="col-md-6">
-        <h1>Add question</h1>
+        <h1>Add Your question to our base</h1>
         <div class="card card-body">
            <form action="" method="POST">
               {% csrf_token %}
@@ -14,5 +15,4 @@
         </div>
     </div>
 </div>
- 
 {% endblock %}
