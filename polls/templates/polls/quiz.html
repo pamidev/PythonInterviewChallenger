@@ -2,11 +2,11 @@
 {% load static %}
 
 {% block content %}
-<div class="container ">
+<div class="container">
 <h3>Python Interview Challenger</h3>
  <form method='post' action=''>
     {% csrf_token %}
-    {% for q  in questions %}
+    {% for q in questions %}
     <div class="form-group">
       <label for="question">{{q.question}}</label>
     </div>
