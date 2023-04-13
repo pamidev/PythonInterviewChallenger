@@ -1,5 +1,13 @@
+@import 'normalize.css';
+@import 'navbar.css';
+@import 'home.css';
+@import 'login.css';
+@import 'register.css';
+
+
 .greet{
     font-size: 16px;
-    color: #fff;
-    margin-right: 20px;
+    font-style: italic;
+    color: #f3e7f5;
+    margin-right: 50px;
   }

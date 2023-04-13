@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="container">
+        <p>
+            You have been correctly logged out.
+            <a href="{% url 'home' %}">Back to Homepage</a>
+        </p>
+    </section>
+{% endblock %}

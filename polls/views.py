@@ -1,13 +1,10 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from .forms import AddQuestionForm
 from .models import Question
-from django.http import HttpResponse
 
 
-def index(request):
-    return HttpResponse("Hello adventurer. You're at the main page.")
-
-
+login_required(login_url='home')
 def quiz(request):
     if request.method == 'POST':
         questions = Question.objects.all()
@@ -28,6 +25,7 @@ def quiz(request):
         percent = score / (total * 10) * 100
         context = {
             'score': score,
+            'time': request.POST.get('timer'),
             'percent': percent,
             'total': total,
             'correct': correct,
@@ -42,6 +40,7 @@ def quiz(request):
         return render(request, 'polls/quiz.html', context)
 
 
+login_required(login_url='home')
 def add_question(request):
     if request.user.is_authenticated:
         form = AddQuestionForm()
@@ -53,4 +52,4 @@ def add_question(request):
         context = {'form': form}
         return render(request, 'polls/add_question.html', context)
     else:
-        return redirect('index')
+        return redirect('home')
