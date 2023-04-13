@@ -1,42 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{#{% extends 'base.html' %}#}
-{##}
-{#{% block content %}#}
-{#    <h2>Register</h2>#}
-{#    <form method="post">#}
-{#        {% csrf_token %}#}
-{#        {{ form.as_p }}#}
-{#        <button type="submit">Register</button>#}
-{#    </form>#}
-{#{% endblock %}#}
-
-<!DOCTYPE html>
 {% block content %}
-<html lang="en">
-  <head>
-    <title>Python Interviev Challanger</title>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <<link rel="stylesheet" href="{% static 'css/login.css' %}" />
-  </head>
-
-  <body>
     <section class="container">
       <div class="login-wrapper">
-        <h1>Python Interviev Challange</h1>
+        <h1>Python Interview Challenger</h1>
         <h2>please register here</h2>
         <form method="post" action="" class="form">
-            {% csrf_token %}
+          {% csrf_token %}
           <label for="username">username</label>
             {{ form.username }}
           <label for="password">password</label>
             {{ form.password1 }}
-          <label for="password2">password2</label>
+          <label for="password2">repeat password</label>
             {{ form.password2 }}
           <label for="">first name</label>
             {{ form.first_name }}
@@ -44,10 +20,15 @@
             {{ form.last_name }}
           <input type="submit" value="submit" />
         </form>
-          {{ form.errors }}
-          Already have an account? <a href="{% url 'login' %}">Sign in</a>
+        {% if error_message %}
+          <p class="error">{{ error_message }}</p>
+        {% endif %}
+        {% for message in messages %}
+            <p id="messages">{{ message }}</p>
+        {% endfor %}
+          <p>
+            Already have an account? <a href="{% url 'login' %}">Sign in</a>
+          </p>
       </div>
     </section>
-  </body>
-</html>
 {% endblock %}
