@@ -10,6 +10,7 @@ class User(models.Model):
     score = models.IntegerField(default=0)
     experience = models.ForeignKey('stats.Experience', on_delete=models.CASCADE)
 
+
 class Admin(models.Model):
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=128)
