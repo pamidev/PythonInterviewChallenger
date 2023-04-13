@@ -20,6 +20,7 @@ body {
 .container {
     display: flex;
     position: relative;
+    top: 80px;
     background: rgb(245, 232, 247);
     background-size: cover;
     background-position: left;
@@ -36,7 +37,7 @@ body {
     width: 500px;
     left: 80px;
     bottom: 0;
-    background: url(images/image2.svg) no-repeat;
+    /*background: url(images/image2.svg) no-repeat;*/
     background-size: contain;
     background-position: center;
     transition: .8s;
@@ -116,7 +117,7 @@ body {
 /* mobile mode */
 @media screen and (max-width: 767px) {
     .container {
-        background: url(images/image3.svg) no-repeat;
+        /*background: url(images/image3.svg) no-repeat;*/
         background-position: bottom;
     }
     .login-wrapper {
