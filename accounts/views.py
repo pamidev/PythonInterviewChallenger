@@ -4,6 +4,7 @@ from .forms import CreateUserForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
+
 def registerPage(request):
     if request.user.is_authenticated:
         return redirect('home')
@@ -20,6 +21,7 @@ def registerPage(request):
 
         context = {'form':form}
         return render(request, 'register.html', context)
+
 
 def loginPage(request):
     if request.user.is_authenticated:
@@ -40,9 +42,12 @@ def loginPage(request):
         context = {}
         return render(request, 'login.html', context)
 
+
 def logoutUser(request):
     logout(request)
-    return redirect('home')
+    context = {}
+    return render(request, 'logout.html', context)
+
 
 def profile(request):
-    return HttpResponse("Hello. This is Your profile.")
+    return redirect('profile')
