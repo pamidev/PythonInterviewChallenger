@@ -18,7 +18,7 @@ class QuestionAdmin(admin.ModelAdmin):
     list_display = ['id', 'question', 'correct_answer', 'pub_date', 'is_verified', 'experience']
     list_display_links = ['id', 'question', 'pub_date']
     list_filter = ['pub_date', 'is_verified']
-    list_per_page = 5
+    list_per_page = 10
     search_fields = ['question']
 
 
