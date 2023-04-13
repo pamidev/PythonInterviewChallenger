@@ -46,7 +46,7 @@ def add_question(request):
             form = AddQuestionForm(request.POST)
             if form.is_valid():
                 form.save()
-                return redirect('/')
+                return redirect('thanks')
         context = {'form': form}
         return render(request, 'polls/add_question.html', context)
     else:
