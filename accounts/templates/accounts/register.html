@@ -14,37 +14,36 @@
         <form method="post" class="form">
         {% csrf_token %}
 
-          <div class="form-outline mb-4">
-            <input type="text" id="username" name="username" class="form-control form-control-lg"
+          <div class="form-outline mb-3">
+            <input type="text" id="username" name="username" class="form-control"
                    placeholder="Your user name"/>
             <label class="form-label" for="username"></label>
           </div>
 
-          <div class="form-outline mb-4">
-            <input type="password" id="password1" name="password1" class="form-control form-control-lg"
+          <div class="form-outline mb-3">
+            <input type="password" id="password1" name="password1" class="form-control"
                    placeholder="Your secret password"/>
             <label class="form-label" for="password1"></label>
           </div>
 
-          <div class="form-outline mb-4">
-            <input type="password" id="password2" name="password2" class="form-control form-control-lg"
+          <div class="form-outline mb-3">
+            <input type="password" id="password2" name="password2" class="form-control"
                    placeholder="Repeat Your password"/>
             <label class="form-label" for="password2"></label>
           </div>
 
-          <div class="form-outline mb-4">
-            <input type="text" id="first_name" name="first_name" class="form-control form-control-lg"
+          <div class="form-outline mb-3">
+            <input type="text" id="first_name" name="first_name" class="form-control"
                    placeholder="Your beautiful name"/>
             <label class="form-label" for="first_name"></label>
           </div>
 
-          <div class="form-outline mb-4">
-            <input type="password" id="last_name" name="last_name" class="form-control form-control-lg"
+          <div class="form-outline mb-3">
+            <input type="password" id="last_name" name="last_name" class="form-control"
                    placeholder="Your charmed last name"/>
             <label class="form-label" for="last_name"></label>
           </div>
-
-          <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
+          <button type="submit" class="btn btn-primary btn-block">Register</button>
           <br><br>
           <p>
             Already have an account? <a href="{% url 'login' %}">Sign in</a>
