@@ -1,12 +1,20 @@
 {% extends 'base.html' %}
-{% load static %}
 
 {% block content %}
-    <section class="container" style="margin: 100px 100px">
-      <div class="login-wrapper">
-        <h1>THANK YOU FROM</h1>
-        <h2>Python Interview Challenger</h2>
-        <h3>for added Your question to our base</h3>
+    <section class="vh-100">
+      <div class="container py-5 h-100">
+        <div class="row d-flex align-items-center justify-content-center h-100">
+          <div class="col-md-8 col-lg-7 col-xl-6">
+            <img src="https://sb-ui-kit-pro-vue.startbootstrap.com/assets/img/drawkit/color/drawkit-content-man-color.svg"
+                 class="img-fluid" alt="Computer windows">
+          </div>
+          <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1 text-center">
+            <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Thank You</p>
+            <h4>Would You add an another?</h4>
+            <h4><a href="{% url 'add_question' %}"><button type="submit" class="btn btn-success">Yes</button></a>
+            or <a href="{% url 'home' %}"><button type="submit" class="btn btn-danger">No</button></a></h4>
+          </div>
+        </div>
       </div>
     </section>
 {% endblock %}
