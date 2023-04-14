@@ -10,23 +10,23 @@
           class="img-fluid" alt="Phone image">
       </div>
       <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-        <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign in</p>
+        <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Log in</p>
         <form method="post" class="form">
         {% csrf_token %}
 
-          <div class="form-outline mb-4">
-            <input type="text" id="username" name="username" class="form-control form-control-lg"
+          <div class="form-outline mb-3">
+            <input type="text" id="username" name="username" class="form-control"
                    placeholder="Your beautiful user name"/>
             <label class="form-label" for="username"></label>
           </div>
 
-          <div class="form-outline mb-4">
-            <input type="password" id="password" name="password" class="form-control form-control-lg"
+          <div class="form-outline mb-3">
+            <input type="password" id="password" name="password" class="form-control"
                    placeholder="Your secret password"/>
             <label class="form-label" for="password"></label>
           </div>
 
-          <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+          <button type="submit" class="btn btn-primary btn-block">Log in</button>
           <br><br>
           <p>
             Don't have an account? <a href="{% url 'register' %}">Sign up</a>
