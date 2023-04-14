@@ -2,17 +2,15 @@
 {% load static %}
 
 {% block content %}
-<div class="jumbotron container row">
-    <div class="col-md-6">
-        <h1>Add Your question to our base</h1>
-        <div class="card card-body">
-           <form action="" method="POST">
-              {% csrf_token %}
+<section class="container">
+    <div class="login-wrapper">
+        <h1>Add question here</h1>
+           <form method="POST" action="" class="form">
+               {% csrf_token %}
                {{form.as_p}}
                <br>
-              <input type="submit" name="Submit">
-         </form>
-        </div>
+               <input type="submit" value="submit">
+           </form>
     </div>
-</div>
+</section>
 {% endblock %}
