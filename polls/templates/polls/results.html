@@ -2,17 +2,23 @@
 {% load static %}
 
 {% block content %}
-    <section class="container" style="margin: 100px 100px">
-        <div class="card-columns">
-            <div class="card">
-                <div class="card-body">
-                    <p class="card-text">Score: {{score}}</p>
-                    <p class="card-text">Percentage of correct answers: {{percent}}%</p>
-                    <p class="card-text">Total questions: {{total}}</p>
-                    <p class="card-text">Correct answers: {{correct}}</p>
-                    <p class="card-text">Incorrect answers: {{wrong}}</p>
-                </div>
-            </div>
+    <section class="vh-100">
+      <div class="container py-5 h-100">
+        <div class="row d-flex align-items-center justify-content-center h-100">
+          <div class="col-md-8 col-lg-7 col-xl-6">
+            <img src="https://sb-ui-kit-pro.startbootstrap.com/assets/img/illustrations/programming.svg"
+                 class="img-fluid" alt="Programmer image">
+          </div>
+          <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+            <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Your results</p>
+            <p class="card-text">Score: {{score}}</p>
+            <p class="card-text">Percentage of correct answers: {{percent}}%</p>
+            <p class="card-text">Total questions: {{total}}</p>
+            <p class="card-text">Correct answers: {{correct}}</p>
+            <p class="card-text">Incorrect answers: {{wrong}}</p>
+            <a href="{% url 'home' %}" class="btn btn-primary">Back</a>
+          </div>
         </div>
+      </div>
     </section>
 {% endblock %}
