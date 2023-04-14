@@ -2,27 +2,36 @@
 {% load static %}
 
 {% block content %}
-    <section class="container">
-      <div class="login-wrapper">
-        <h1>Python Interview Challenger</h1>
-        <h2>please login here</h2>
-        <form method="post" class="form">
-          {% csrf_token %}
-          <label for="username">username</label>
-          <input type="text" id="username" name="username" />
-          <label for="password">password</label>
-          <input type="password" id="password" name="password" />
-          <input type="submit" value="login" />
-        </form>
-        {% if error_message %}
-          <p class="error">{{ error_message }}</p>
-        {% endif %}
-        {% for message in messages %}
-            <p id="messages">{{ message }}</p>
-        {% endfor %}
-          <p>
-              Don't have an account? <a href="{% url 'register' %}">Sign up</a>
-          </p>
+<section class="vh-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-8 col-lg-7 col-xl-6">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+          class="img-fluid" alt="Phone image">
       </div>
-    </section>
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign in</p>
+        <form method="post" class="form">
+        {% csrf_token %}
+
+          <div class="form-outline mb-4">
+            <input type="text" id="username" name="username" class="form-control form-control-lg" />
+            <label class="form-label" for="username">Your beautifull user name</label>
+          </div>
+
+          <div class="form-outline mb-4">
+            <input type="password" id="password" name="password" class="form-control form-control-lg" />
+            <label class="form-label" for="password">Your secret password</label>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+          <br><br>
+          <p>
+            Don't have an account? <a href="{% url 'register' %}">Sign up</a>
+          </p>
+          </form>
+      </div>
+    </div>
+  </div>
+</section>
 {% endblock %}

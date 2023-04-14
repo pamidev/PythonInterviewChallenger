@@ -2,33 +2,51 @@
 {% load static %}
 
 {% block content %}
-    <section class="container">
-      <div class="login-wrapper">
-        <h1>Python Interview Challenger</h1>
-        <h2>please register here</h2>
-        <form method="post" action="" class="form">
-          {% csrf_token %}
-          <label for="username">username</label>
-            {{ form.username }}
-          <label for="password">password</label>
-            {{ form.password1 }}
-          <label for="password2">repeat password</label>
-            {{ form.password2 }}
-          <label for="">first name</label>
-            {{ form.first_name }}
-          <label for="">last name</label>
-            {{ form.last_name }}
-          <input type="submit" value="submit" />
-        </form>
-        {% if error_message %}
-          <p class="error">{{ error_message }}</p>
-        {% endif %}
-        {% for message in messages %}
-            <p id="messages">{{ message }}</p>
-        {% endfor %}
+<section class="vh-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-8 col-lg-7 col-xl-6">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+             class="img-fluid" alt="Doors image">
+      </div>
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+        <form method="post" class="form">
+        {% csrf_token %}
+
+          <div class="form-outline mb-4">
+            <input type="text" id="username" name="username" class="form-control form-control-lg" />
+            <label class="form-label" for="username">Your user name</label>
+          </div>
+
+          <div class="form-outline mb-4">
+            <input type="password" id="password1" name="password1" class="form-control form-control-lg" />
+            <label class="form-label" for="password1">Your secret password</label>
+          </div>
+
+          <div class="form-outline mb-4">
+            <input type="password" id="password2" name="password2" class="form-control form-control-lg" />
+            <label class="form-label" for="password2">Repeat Your password</label>
+          </div>
+
+          <div class="form-outline mb-4">
+            <input type="text" id="first_name" name="first_name" class="form-control form-control-lg" />
+            <label class="form-label" for="first_name">Your beautiful name</label>
+          </div>
+
+          <div class="form-outline mb-4">
+            <input type="password" id="last_name" name="last_name" class="form-control form-control-lg" />
+            <label class="form-label" for="last_name">Your charmed last name</label>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
+          <br><br>
           <p>
             Already have an account? <a href="{% url 'login' %}">Sign in</a>
           </p>
+          </form>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 {% endblock %}

@@ -2,17 +2,17 @@
 {% load static %}
 
 {% block content %}
-<div class="container">
-    <div class="card-columns">
-        <div class="card">
-            <div class="card-body">
-                <p class="card-text">Score: {{score}}</p>
-                <p class="card-text">Percentage of correct answers: {{percent}}%</p>
-                <p class="card-text">Total questions: {{total}}</p>
-                <p class="card-text">Correct answers: {{correct}}</p>
-                <p class="card-text">Incorrect answers: {{wrong}}</p>
+    <section class="container" style="margin: 100px 100px">
+        <div class="card-columns">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">Score: {{score}}</p>
+                    <p class="card-text">Percentage of correct answers: {{percent}}%</p>
+                    <p class="card-text">Total questions: {{total}}</p>
+                    <p class="card-text">Correct answers: {{correct}}</p>
+                    <p class="card-text">Incorrect answers: {{wrong}}</p>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+    </section>
 {% endblock %}

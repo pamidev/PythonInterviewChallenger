@@ -1,13 +1,7 @@
-@import 'normalize.css';
-@import 'navbar.css';
-@import 'home.css';
-@import 'login.css';
-@import 'register.css';
-
-
-.greet{
-    font-size: 16px;
-    font-style: italic;
-    color: #f3e7f5;
-    margin-right: 50px;
-  }
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}

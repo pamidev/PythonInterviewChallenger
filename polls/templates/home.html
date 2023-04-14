@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <section class="container">
-      <div class="login-wrapper">
-        <h1>Welcome to the</h1>
-        <h2>Python Interview Challenger</h2>
-        <h3>click the button to start the quiz</h3>
-        <form action="{% url 'quiz' %}" class="form">
-          <input type="submit" value="start" />
-        </form>
-      </div>
-    </section>
+<section class="container" style="margin-top: 100px">
+  <div class="login-wrapper">
+    <h1>Welcome to the</h1>
+    <h2>Python Interview Challenger</h2>
+    <h3>click the button to start the quiz</h3>
+    <form action="{% url 'quiz' %}" class="form">
+      <input type="submit" value="start">
+    </form>
+  </div>
+</section>
 {% endblock %}

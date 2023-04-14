@@ -1,19 +1,37 @@
 {% block content %}
-    <input type="checkbox" id="check" />
-    <label for="check" class="checkbtn">
-    <i class="bx bx-menu"></i>
-    </label>
-    <label class="logo">Python Interviev Challanger</label>
-    <ul>
-        <li class="greet">Hello, {{ request.user }} !</li>
-        <li><a href="{% url 'home' %}">Home</a></li>
+<nav class="navbar navbar-expand-lg bg-dark fixed-top shadow p-3" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'home' %}">PYTHON INTERVIEW CHALLENGER |</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'home' %}">Home</a>
+        </li>
         {% if request.user.is_authenticated %}
-            <li><a href="{% url 'logout' %}">Logout</a></li>
-            <li><a href="{% url 'profile' %}">Profile</a></li>
-            <li><a href="{% url 'add_question' %}">Add question</a></li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                My account
+            </a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+                <li><a class="dropdown-item" href="{% url 'add_question' %}">Add question</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="{% url 'logout' %}">LogOut</a></li>
+            </ul>
+        </li>
         {% else %}
-            <li><a href="{% url 'login' %}">Sign in</a></li>
-            <li><a href="{% url 'register' %}">Sign up</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">Log In</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'register' %}">Sign Up</a>
+        </li>
         {% endif %}
-    </ul>
+      </ul>
+    </div>
+  </div>
+</nav>
 {% endblock %}
