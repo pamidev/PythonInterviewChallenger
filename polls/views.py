@@ -6,7 +6,7 @@ from .models import Question
 
 def quiz(request):
     if request.method == 'POST':
-        questions = Question.objects.all()
+        questions = Question.objects.filter(is_verified=True)
         score = 0
         wrong = 0
         correct = 0
@@ -31,7 +31,7 @@ def quiz(request):
         }
         return render(request, 'polls/results.html', context)
     else:
-        questions = Question.objects.all()
+        questions = Question.objects.filter(is_verified=True)
         context = {
             'questions': questions
         }
