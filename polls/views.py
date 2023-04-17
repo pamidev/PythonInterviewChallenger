@@ -35,7 +35,7 @@ def results(request):
         else:
             wrong += 1
 
-    percent = round((score / (total * 10) * 100), 2)
+    percent = score / (total * 10) * 100
     context = {
         'score': score,
         'percent': percent,
@@ -54,7 +54,7 @@ def quiz(request):
         if request.user.is_authenticated:
             questions = questions_all()
         else:
-            questions = questions_3()
+            questions = questions_3
         context = {
             'questions': questions
         }
