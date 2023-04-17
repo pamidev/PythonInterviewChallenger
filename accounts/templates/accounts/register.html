@@ -45,9 +45,11 @@
           </div>
           <button type="submit" class="btn btn-primary btn-block">Sign up</button>
           <br><br>
-
+          {% for message in messages %}
+            <p id="message"> {{ message }}</p>
+          {% endfor %}
           <p>
-            Already have an account? <a href="{% url 'login' %}">Log in</a>
+            Already have an account? <a href="{% url 'user_login' %}">Log in</a>
           </p>
           </form>
       </div>

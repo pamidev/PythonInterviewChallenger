@@ -28,6 +28,9 @@
 
           <button type="submit" class="btn btn-primary btn-block">Log in</button>
           <br><br>
+            {% for message in messages %}
+            <p id="message"> {{ message }}</p>
+          {% endfor %}
           <p>
             Don't have an account? <a href="{% url 'register' %}">Sign up</a>
           </p>
