@@ -1,4 +1,5 @@
 from django.shortcuts import redirect, render
+
 from .forms import AddQuestionForm
 from .models import Question
 
@@ -9,7 +10,7 @@ def questions_all():
 
 
 def questions_3():
-    questions = Question.objects.filter(is_verified=True).order_by('?')[:3]
+    questions = Question.objects.filter(pk__gte=11, pk__lte=13)
     return questions
 
 
@@ -28,7 +29,7 @@ def results(request):
         total += 1
         answer = request.POST.get(q.question)
         items = vars(q)
-        print(items[answer])
+
         if q.correct_answer == items[answer]:
             score += 10
             correct += 1
