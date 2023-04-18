@@ -11,6 +11,11 @@
       </div>
       <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
         <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Log in</p>
+          {% for message in messages %}
+              <div class="alert alert-danger">
+              {{ message }}
+              </div>
+          {% endfor %}
         <form method="post" class="form">
         {% csrf_token %}
 
@@ -28,9 +33,7 @@
 
           <button type="submit" class="btn btn-primary btn-block">Log in</button>
           <br><br>
-            {% for message in messages %}
-            <p id="message"> {{ message }}</p>
-          {% endfor %}
+
           <p>
             Don't have an account? <a href="{% url 'register' %}">Sign up</a>
           </p>
