@@ -10,6 +10,18 @@
           </div>
           <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
             <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Add question here</p>
+
+              {% if form.errors %}
+              <div class="alert alert-danger">
+                <strong>Error:</strong>
+                {% for field_errors in form.errors.values %}
+                {% for error in field_errors %}
+                  {{ error }}
+                {% endfor %}
+                {% endfor %}
+              </div>
+              {% endif %}
+
             <form method="POST" action="" class="form">
             {% csrf_token %}
             <div class="form-outline mb-3">

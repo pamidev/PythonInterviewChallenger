@@ -68,6 +68,16 @@ def add_question(request):
         if request.method == 'POST':
             form = AddQuestionForm(request.POST)
             if form.is_valid():
+                correct_answer = form.cleaned_data['correct_answer']
+                answer_options = [
+                    form.cleaned_data['answer_1'],
+                    form.cleaned_data['answer_2'],
+                    form.cleaned_data['answer_3'],
+                    form.cleaned_data['answer_4']
+                ]
+                if correct_answer not in answer_options:
+                    form.add_error('correct_answer', 'Please select one of the answer options as the correct answer.')
+                    return render(request, 'polls/add_question.html', {'form': form})
                 form.save()
                 return redirect('thanks')
         context = {'form': form}
