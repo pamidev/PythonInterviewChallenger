@@ -2,9 +2,9 @@
 {% load static %}
 
 {% block content %}
-    <section class="container" style="margin-top: 100px; margin-bottom: 100px">
-      <p>
-          This is my account, my results, any else...
-      </p>
-    </section>
+  <h1>User Detail</h1>
+  <p>Username: {{ user.username }}</p>
+  <p>First Name: {{ user.first_name }}</p>
+  <p>Last Name: {{ user.last_name }}</p>
+  <p>Score: {{ user.score }}</p>
 {% endblock %}
