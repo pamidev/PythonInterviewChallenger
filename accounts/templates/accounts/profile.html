@@ -2,9 +2,24 @@
 {% load static %}
 
 {% block content %}
-  <h1>User Detail</h1>
-  <p>Username: {{ user.username }}</p>
-  <p>First Name: {{ user.first_name }}</p>
-  <p>Last Name: {{ user.last_name }}</p>
-  <p>Score: {{ user.score }}</p>
+  <section class="vh-100">
+      <div class="container py-5 h-100">
+        <div class="row d-flex align-items-center justify-content-center h-100">
+          <div class="col-md-8 col-lg-7 col-xl-6">
+            <img src="https://sb-ui-kit-pro-vue.startbootstrap.com/assets/img/drawkit/color/drawkit-content-man-color.svg"
+                 class="img-fluid" alt="Computer windows">
+          </div>
+          <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1 text-center">
+            <p class="text-start h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">User Detail</p>
+            <p class="text-start">Username: {{ user.username }}</p>
+            <p class="text-start">First Name: {{ user.first_name }}</p>
+            <p class="text-start">Last Name: {{ user.last_name }}</p>
+            <p class="text-start">Score: {{ user.score }}</p>
+            <br>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            <a href="{% url 'home' %}"><button type="submit" class="btn btn-primary">Home</button></a>
+          </div>
+        </div>
+      </div>
+  </section>
 {% endblock %}
