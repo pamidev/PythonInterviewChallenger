@@ -20,3 +20,27 @@ class UserRegistrationTests(TestCase):
 
         user = User.objects.get(username='testuser')
         self.assertTrue(user.check_password('testpass123'))
+
+    def test_user_registration_with_invalid_data(self):
+        response = self.client.post(reverse('register'), data={
+            'username': '',
+            'email': 'invalid_email',
+            'password1': 'short',
+            'password2': 'mismatch'
+        })
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "This field is required.")
+        self.assertContains(response, "Enter a valid email address.")
+        self.assertContains(response, "Ensure this value has at least 8 characters (it has 5).")
+        self.assertContains(response, "The two password fields didn't match.")
+
+    def test_user_registration_with_existing_username(self):
+        User.objects.create_user(username='existinguser', password='testpass123')
+        response = self.client.post(reverse('register'), data={
+            'username': 'existinguser',
+            'email': 'testuser@example.com',
+            'password1': 'testpass123',
+            'password2': 'testpass123'
+        })
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "A user with that username already exists.")
