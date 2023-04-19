@@ -3,8 +3,37 @@
 
 {% block content %}
     <section class="container" style="margin-top: 100px; margin-bottom: 100px">
-      <p>
-          This is my account, my results, any else...
-      </p>
+      <h1>{{ user.username }}'s Added Questions</h1>
+
+      {% if message %}
+        <p>{{ message }}</p>
+      {% endif %}
+
+      {% if questions %}
+        <ul>
+          {% for question in questions %}
+            <li>
+              <form method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="question_id" value="{{ question.id }}">
+                <p><strong>{{ question.question }}</strong></p>
+                <p>
+                  1. {{ question.answer_1 }}<br>
+                  2. {{ question.answer_2 }}<br>
+                  3. {{ question.answer_3 }}<br>
+                  4. {{ question.answer_4 }}
+                </p>
+                <p>Correct answer: {{ question.correct_answer }}</p>
+                <p>
+                  <button type="submit" name="action" value="delete">Delete</button>
+                  <button type="submit" name="action" value="edit">Edit</button>
+                </p>
+              </form>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>No questions added yet.</p>
+      {% endif %}
+    {% endblock %}
     </section>
-{% endblock %}

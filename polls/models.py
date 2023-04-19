@@ -12,6 +12,7 @@ class Question(models.Model):
     pub_date = models.DateTimeField('date published', default=timezone.now)
     is_verified = models.BooleanField(default=False)
     experience = models.ForeignKey('stats.Experience', on_delete=models.CASCADE)
+    who_add = models.ForeignKey('accounts.User', on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return self.question
