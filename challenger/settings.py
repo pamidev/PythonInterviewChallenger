@@ -12,9 +12,9 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 from pathlib import Path
 
-from decouple import config, RepositoryIni
+from decouple import Config
 
-config_ = config(default=None, repository=RepositoryIni('.env'))
+config = Config('.env')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,10 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config_('SECRET_KEY')
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config_('DEBUG', default=False, cast=bool)
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.pythonanywhere.com']
 
@@ -79,12 +79,12 @@ WSGI_APPLICATION = 'challenger.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': config_('DB_ENGINE'),
-        'NAME': config_('DB_NAME'),
-        'USER': config_('DB_USER'),
-        'PASSWORD': config_('DB_PASSWORD'),
-        'HOST': config_('DB_HOST'),
-        'PORT': config_('DB_PORT'),
+        'ENGINE': config('DB_ENGINE'),
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
         },
