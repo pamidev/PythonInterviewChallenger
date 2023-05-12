@@ -11,24 +11,24 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
 from pathlib import Path
-from decouple import config
 
+from decouple import config, RepositoryIni
+
+config_ = config(default=None, repository=RepositoryIni('.env'))
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = config_('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = config_('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.pythonanywhere.com']
-
 
 # Application definition
 
@@ -59,7 +59,7 @@ ROOT_URLCONF = 'challenger.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR/'templates'],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,24 +74,22 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'challenger.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': config('DB_ENGINE'),
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT'),
+        'ENGINE': config_('DB_ENGINE'),
+        'NAME': config_('DB_NAME'),
+        'USER': config_('DB_USER'),
+        'PASSWORD': config_('DB_PASSWORD'),
+        'HOST': config_('DB_HOST'),
+        'PORT': config_('DB_PORT'),
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
         },
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -111,7 +109,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
@@ -122,7 +119,6 @@ TIME_ZONE = 'Europe/Warsaw'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
