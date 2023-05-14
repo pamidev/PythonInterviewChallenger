@@ -7,7 +7,7 @@ local_settings.py
 db.sqlite3
 
 # Virtual Environment
-.env
+challenger/.env
 .venv
 venv/
 env/
