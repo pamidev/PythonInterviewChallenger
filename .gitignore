@@ -21,3 +21,4 @@ Thumbs.db
 .coverage
 .tox/
 .eggs/
+/fixtures.json
