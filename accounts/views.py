@@ -1,11 +1,12 @@
-from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login, logout
-from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
+from django.shortcuts import render, redirect
+
 from .forms import CreateUserForm
 
 
-def registerPage(request):
+def register_page(request):
     if request.user.is_authenticated:
         return redirect('home')
     else:
@@ -26,7 +27,7 @@ def registerPage(request):
         return render(request, 'accounts/register.html', context)
 
 
-def loginPage(request):
+def login_page(request):
     if request.user.is_authenticated:
         return redirect('home')
     else:
@@ -38,12 +39,12 @@ def loginPage(request):
                 login(request, user)
                 return redirect('home')
             else:
-                messages.info(request, 'Username or password is incorrect')
+                messages.info(request, 'Username or password is incorrect.')
         context = {}
         return render(request, 'accounts/login.html', context)
 
 
-def logoutUser(request):
+def logout_user(request):
     logout(request)
     return render(request, 'accounts/logout.html')
 

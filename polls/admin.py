@@ -3,23 +3,23 @@ from django.contrib import admin
 from .models import Question
 
 
+@admin.register(Question)
 class QuestionAdmin(admin.ModelAdmin):
     fieldsets = [
+        (None, {'fields': ['created']}),
         (None, {'fields': ['question']}),
-        (None, {'fields': ['pub_date']}),
         (None, {'fields': ['answer_1']}),
         (None, {'fields': ['answer_2']}),
         (None, {'fields': ['answer_3']}),
         (None, {'fields': ['answer_4']}),
         (None, {'fields': ['correct_answer']}),
-        (None, {'fields': ['is_verified']}),
         (None, {'fields': ['experience']}),
+        (None, {'fields': ['is_verified']}),
     ]
-    list_display = ['id', 'question', 'correct_answer', 'pub_date', 'is_verified', 'experience']
-    list_display_links = ['id', 'question', 'pub_date']
-    list_filter = ['pub_date', 'is_verified']
-    list_per_page = 10
-    search_fields = ['question']
+    list_display = ['id', 'question', 'correct_answer', 'created', 'experience', 'is_verified']
+    list_display_links = ['id', 'question', 'created', 'is_verified']
+    list_filter = ['created', 'is_verified']
+    list_per_page = 25
+    search_fields = ['question', 'correct_answer']
 
-
-admin.site.register(Question, QuestionAdmin)
+# admin.site.register(Question)

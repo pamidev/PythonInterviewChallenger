@@ -1,17 +1,16 @@
-from django.db import models
-from django.utils import timezone
+from django.db.models import BooleanField, CharField, DateTimeField, DO_NOTHING, ForeignKey, Model
 
 
-class Question(models.Model):
-    question = models.CharField(max_length=255)
-    answer_1 = models.CharField(max_length=255)
-    answer_2 = models.CharField(max_length=255)
-    answer_3 = models.CharField(max_length=255)
-    answer_4 = models.CharField(max_length=255)
-    correct_answer = models.CharField(max_length=255)
-    pub_date = models.DateTimeField('date published', default=timezone.now)
-    is_verified = models.BooleanField(default=False)
-    experience = models.ForeignKey('stats.Experience', on_delete=models.CASCADE)
+class Question(Model):
+    question = CharField(max_length=255)
+    answer_1 = CharField(max_length=255)
+    answer_2 = CharField(max_length=255)
+    answer_3 = CharField(max_length=255)
+    answer_4 = CharField(max_length=255)
+    correct_answer = CharField(max_length=255)
+    created = DateTimeField(auto_now_add=True)
+    is_verified = BooleanField(default=False)
+    experience = ForeignKey('stats.Experience', on_delete=DO_NOTHING)
 
     def __str__(self):
         return self.question
