@@ -92,10 +92,7 @@ $ python --version
 Now You need to create and activate _virtual environment_ like this:
 ```bash
 $ python -m venv .venv
-$ cd .venv\Scripts
-$ activate
-$ cd ..
-$ cd ..
+$ .venv\Scripts\activate.bat
 ```
 
 and install dependencies in the previously created _virtual environment_:
